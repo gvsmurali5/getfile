@@ -23,9 +23,12 @@
       #zlib1g-dev \
        # && docker-php-ext-install zip
 	   
-	   RUN service apache2 restart
+	   RUN apt-get update && \
+     apt-get install -y \
+         libzip-dev \
+         && docker-php-ext-install zip
 	   
-	RUN apt-get install php7.0-zip
+	#RUN apt-get install php7.0-zip
 
  #RUN ln -sf /dev/stdout /var/log/apache2/access.log &&  ln -sf /dev/stderr /var/log/apache2/error.log
 
