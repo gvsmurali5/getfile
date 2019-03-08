@@ -18,10 +18,12 @@
  
  #COPY /000-default.conf/ /etc/apache2/sites-enabled/
  
- RUN apt-get update && \
-   apt-get install -y \
-      zlib1g-dev \
-        && docker-php-ext-install zip
+ #RUN apt-get update && \
+   #apt-get install -y \
+      #zlib1g-dev \
+       # && docker-php-ext-install zip
+	   
+	RUN apt-get install php7.0-zip
 
  #RUN ln -sf /dev/stdout /var/log/apache2/access.log &&  ln -sf /dev/stderr /var/log/apache2/error.log
 
