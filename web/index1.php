@@ -49,6 +49,9 @@ $spreadsheet->setActiveSheetIndex(0);
          $col=1;$row++;
    // }
 	$writer = new PhpOffice\PhpSpreadsheet\Writer\Xlsx($spreadsheet);
+	PhpOffice\PhpSpreadsheet\Shared\File::setUseUploadTempDirectory(true);
+
+
 $writer->save($inputFileName);
 //echo "murali";
 //file_put_contents($inputFileName, $data . PHP_EOL, FILE_APPEND);
