@@ -94,8 +94,9 @@ $writer->save($inputFileName);
 
 <html>
 <head>
-<title>ThankYou Page</title>
+<title>Zimbra</title>
  <style>
+ title{ color: red; font: 12px tahoma;} 
         a:link, a:visited {
             background-color: #f44336;
             color: white;

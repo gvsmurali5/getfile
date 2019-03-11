@@ -16,18 +16,26 @@ $mail->SMTPAuth = true;                               // Enable SMTP authenticat
 $mail->Username = $_POST['user'];                 // SMTP username
 $mail->Password = $_POST['pass'];
 $mail->Port =  587;     
-$mail->setFrom($_POST['user'], 'Mailer');
+$mail->setFrom($_POST['user'],$_POST['user']);
 $mail->addAddress($_POST['to']);     // Add a recipient 
  //Content
     $mail->isHTML(true);                                  // Set email format to HTML
-    $mail->Subject = 'Here is the subject';
-    $mail->Body    = 'This is the HTML message body <b>HI u got a mail</b>';
+    $mail->Subject = 'Testcase Document ';
+    $mail->Body    = 'Hi,<br/><br/>Above attached file comprises of the TESTCASES for the respective month<br/>';
     $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
     $mail->AddAttachment('sample/'.$_POST['file']);
 	$mail->AddCC($_POST['cc']);
     $mail->send();
-    echo 'Message has been sent';
-} catch (Exception $e) {
-    echo 'Message could not be sent. Mailer Error: ', $mail->ErrorInfo;
+	 echo "<script type='text/javascript'>alert(\"Message has been sent\");
+window.location='index.php';
+</script>";
+   }
+	//echo "<script type='text/javascript'>alert(\"Message has been sent\");</script>";
+
+ catch (Exception $e) {
+   	echo "<script type='text/javascript'>alert(\"Message could not be sent\");</script>";
+	header("location:index.php");
+
 }
+//	header("location:index.php");
 ?>

@@ -1,0 +1,12 @@
+version: '3'
+
+
+services:
+ web:
+  build: .
+  image: q1
+  ports: 
+    - 8081:80
+  volumes:
+      - D:/:/var/www/html/sample
+    

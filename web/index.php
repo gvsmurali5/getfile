@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>Input Form</title>
+<title>Resource Utilization</title>
 <style>
 th,td {
   padding: 10px;
