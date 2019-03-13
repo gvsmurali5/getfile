@@ -9,12 +9,12 @@ use PhpOffice\PhpSpreadsheet\IOFactory;
 //now you can use the Spreadsheet and Xlsx classes
 $sprint1=$_POST['sprint'];
 $rname1=$_POST['rname'];
-$month1=$_POST['month'];
+$month1=$_POST['month'].'-'.$_POST['month1'];
 $eff=$_POST['effort1'];
 $eff1=$_POST['effort2'];
 $leave1=$_POST['leave'];
 $filename=$_POST['file'];
-$inputFileName = 'sample/'.$_POST['file'];
+$inputFileName = 'sample/'.$_POST['file'].'.xlsx';
 if (file_exists($inputFileName)) {
     //echo "The file $inputFileName exists";
 } else {
@@ -137,19 +137,19 @@ button {
 <table style="width:60%" align="center" height="40%">
 <tr>
     <th>Username :</th>
-    <td><input type="text" name="user"></td> 
+    <td><input type="text" name="user" required></td> 
     <th>Password :</th>
-	<td><input type="password" name="pass"></td>
+	<td><input type="password" name="pass" required></td>
   </tr>
   <tr>
     <th> Recepient :</th>
-    <td><input type="text" name="to"></td> 
+    <td><input type="text" name="to" required></td> 
     <th> CC :</th>
-	<td><input type="text" name="cc"></td>
+	<td><input type="text" name="cc" required></td>
   </tr>
   <tr>
     <th> File name :</th>
-	<td><input type="text" name="file"></td>	
+	<td><input type="text" name="file" required></td>	
   </tr>
   </table>
   </br></br>

@@ -23,7 +23,7 @@ $mail->addAddress($_POST['to']);     // Add a recipient
     $mail->Subject = 'Testcase Document ';
     $mail->Body    = 'Hi,<br/><br/>Above attached file comprises of the TESTCASES for the respective month<br/>';
     $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
-    $mail->AddAttachment('sample/'.$_POST['file']);
+    $mail->AddAttachment('sample/'.$_POST['file'].'.xlsx');
 	$mail->AddCC($_POST['cc']);
     $mail->send();
 	 echo "<script type='text/javascript'>alert(\"Message has been sent\");
@@ -33,8 +33,9 @@ window.location='index.php';
 	//echo "<script type='text/javascript'>alert(\"Message has been sent\");</script>";
 
  catch (Exception $e) {
-   	echo "<script type='text/javascript'>alert(\"Message could not be sent\");</script>";
-	header("location:index.php");
+	 $message=$mail->ErrorInfo;
+   	echo "<script type='text/javascript'>alert('$message');window.location='index1.php';</script>";
+	//header("location:index.php");
 
 }
 //	header("location:index.php");
