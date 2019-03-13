@@ -36,8 +36,46 @@ $spreadsheet = IOFactory::load($inputFileName);
 
 $spreadsheet->setActiveSheetIndex(0);
     $objSheet = $spreadsheet->getActiveSheet();
-    $last_line = $objSheet->getHighestRow();
+	$styleArray = [
+    'font' => [
+        'bold' => true,
+    ],
+    'alignment' => [
+        'horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_LEFT,
+    ],
+    'borders' => [
+        'top' => [
+            'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,
+        ],
+    ],
+    'fill' => [
+        'fillType' => \PhpOffice\PhpSpreadsheet\Style\Fill::FILL_GRADIENT_LINEAR,
+        'rotation' => 90,
+        'startColor' => [
+            'argb' => 'FFA0A0A0',
+        ],
+        'endColor' => [
+            'argb' => 'FFFFFFFF',
+        ],
+    ],
+];
+
+$objSheet->getStyle('A1:F1')->applyFromArray($styleArray);
+    $objSheet->getColumnDimension('A')->setAutoSize(true);
+	$objSheet->getColumnDimension('B')->setAutoSize(true);
+	$objSheet->getColumnDimension('C')->setAutoSize(true);
+	$objSheet->getColumnDimension('D')->setAutoSize(true);
+	$objSheet->getColumnDimension('E')->setAutoSize(true);
+	$objSheet->getColumnDimension('F')->setAutoSize(true);
+	$col = 1;
+	$objSheet->setCellValueByColumnAndRow($col++,1,'Sprint No');
+        $objSheet->setCellValueByColumnAndRow($col++, 1, 'Resource Name');
+        $objSheet->setCellValueByColumnAndRow($col++, 1, 'Month (MMM-YY)');
+        $objSheet->setCellValueByColumnAndRow($col++, 1, 'Available Effort (Hrs)');
+        $objSheet->setCellValueByColumnAndRow($col++, 1, 'Actual Effort (Hrs)');
+        $objSheet->setCellValueByColumnAndRow($col++, 1, 'Leaves (Hrs)');
     //$last_id = $objSheet->getCellByColumnAndRow(0, $last_line)->getCalculatedValue();
+	$last_line = $objSheet->getHighestRow();
 	$row = $last_line + 1; $col = 1;
 	//foreach($data as $data1){
         $objSheet->setCellValueByColumnAndRow($col++, $row, $sprint1);
