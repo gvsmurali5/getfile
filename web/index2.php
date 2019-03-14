@@ -21,7 +21,7 @@ $mail->addAddress($_POST['to']);     // Add a recipient
  //Content
     $mail->isHTML(true);                                  // Set email format to HTML
     $mail->Subject = 'Testcase Document ';
-    $mail->Body    = 'Hi,<br/><br/>Above attached file comprises of the TESTCASES for the respective month<br/>';
+    $mail->Body    = 'Hi,<br/><br/>Above attached file comprises of the PROJECT METRICS for the respective month<br/>';
     $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
     $mail->AddAttachment('sample/'.$_POST['file'].'.xlsx');
 	$mail->AddCC($_POST['cc']);
